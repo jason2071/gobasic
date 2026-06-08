@@ -1,12 +1,12 @@
 package main
 
 import (
+	"errors"
 	"fmt"
-	"math"
 )
 
 func main() {
-	fmt.Println("hello world")
+	// fmt.Println("hello world")
 	// hr.Profile()
 	// jsonDemo.TodoList()
 	// jsonDemo.TodoListJsonPlaceholder()
@@ -14,36 +14,25 @@ func main() {
 	// jsonDemo.JsonEncoderDecoder()
 	// greet.HiPersonTextTemplate()
 	// greet.HtmlTemplate()
+	// numbers.NumberAvg()
+	// outlineNodes.NodeOutline()
 
-	fmt.Println("int8:")
-	fmt.Printf("MinInt8: %d\n", math.MinInt8)
-	fmt.Printf("MaxInt8: %d\n", math.MaxInt8)
-
-	fmt.Println("float32:")
-	fmt.Printf("SmallestNonzeroFloat32: %g\n", math.SmallestNonzeroFloat32)
-	fmt.Printf("MaxFloat32: %g\n", math.MaxFloat32)
-
-	resp := avg(1, 2)
-	fmt.Printf("result: %.2f\n", resp)
-
-	numbers := []float64{1, 2, 3, 4, 5, 6, 7, 8, 9}
-	resp2 := avg2(numbers)
-	fmt.Printf("result: %.2f\n", resp2)
+	Money()
 }
 
-func avg(a float64, b float64) float64 {
-	return (a + b) / 2
+func withdraw(amount int) (int, error) {
+	if amount > 0 {
+		return 0, errors.New("insufficient fund")
+	}
+	return amount, nil
 }
 
-func avg2(data []float64) float64 {
-	if len(data) == 0 {
-		return 0
+func Money() {
+	amount, err := withdraw(200)
+	if err != nil {
+		fmt.Println(err)
+		return
 	}
+	fmt.Println("Please collect your money: ", amount)
 
-	var sum float64
-	for _, v := range data {
-		sum += v
-	}
-
-	return sum / float64(len(data))
 }
