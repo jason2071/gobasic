@@ -1,4 +1,4 @@
-package functionvalue
+package main
 
 import (
 	"errors"
