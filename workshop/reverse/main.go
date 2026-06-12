@@ -15,6 +15,10 @@ func main() {
 
 	fmt.Println(reverseGraphemes("hello"))
 	fmt.Println(reverseGraphemes("สวัสดี"))
+
+	fmt.Println("----------------------")
+	fmt.Println(reverse("👋🏻🙏🏽🇹🇭"))          // runes กลับตัว แต่ 👋🏻 (U+1F44B U+1F3FB) แตกออก
+	fmt.Println(reverseGraphemes("👋🏻🙏🏽🇹🇭")) // graphemes เก็บ cluster ไว้ไม่แตก
 }
 
 func reverse(s string) string {
